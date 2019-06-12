@@ -1,0 +1,37 @@
+{
+  "name": "backend-challenge",
+  "version": "1.0.0",
+  "description": "Barstool Backend Challenge written in Node.js",
+  "author": "Barstool Sports, Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "app-module-path": "2.2.0",
+    "aws-sdk": "2.474.0",
+    "bcryptjs": "2.4.3",
+    "cors": "2.8.5",
+    "express-validator": "5.3.1",
+    "helmet": "3.18.0",
+    "lambda-api": "0.10.1",
+    "mongodb": "3.2.7",
+    "mongoose": "5.5.15",
+    "uuid": "3.3.2"
+  },
+  "devDependencies": {
+    "eslint": "5.16.0",
+    "mocha": "6.1.4",
+    "require-directory": "2.1.1",
+    "serverless-offline": "5.3.3",
+    "sinon": "7.3.2",
+    "should": "13.2.3",
+    "supertest": "4.0.2"
+  },
+  "engines": {
+    "node": "^10.15.3",
+    "yarn": "^1.15.2"
+  },
+  "scripts": {
+    "lint": "npx eslint .",
+    "start": "npx serverless offline -c --providedRuntime nodejs10.x",
+    "test": "npx mocha --exit --bail --slow 2000 --timeout 10000 ./test"
+  }
+}

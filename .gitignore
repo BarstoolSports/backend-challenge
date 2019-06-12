@@ -1,0 +1,11 @@
+.serverless
+.env*
+.envrc
+.services
+.notes
+*.zip
+dump.rdb
+node_modules
+jspm_packages
+npm-debug.log
+package-lock.json

@@ -1,0 +1,32 @@
+service: barstool-backend-challenge
+
+provider:
+  name: aws
+  profile: barstool
+  runtime: provided
+  region: us-east-1
+  memorySize: 1024
+  timeout: 30
+  versionFunctions: false
+
+package:
+  excludeDevDependencies: true
+
+custom:
+  nodeLayer: arn:aws:lambda:us-east-1:553035198032:layer:nodejs10:14
+
+plugins:
+  - serverless-offline
+
+functions:
+  proxy:
+    handler: server.handler
+    layers:
+      - ${self:custom.nodeLayer}
+    events:
+      - http:
+          path: /
+          method: ANY
+      - http:
+          path: /{path+}
+          method: ANY
