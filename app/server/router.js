@@ -1,7 +1,6 @@
 const { Router } = require('express')
 
 class HttpRouter {
-
   /**
    * @static
    * @param {express.Router} router
@@ -73,7 +72,7 @@ class HttpRouter {
     this._router[methodName](path, async (req, res, next) => {
       try {
         await handler(req, res)
-      } catch(err) {
+      } catch (err) {
         next(err)
       }
     })

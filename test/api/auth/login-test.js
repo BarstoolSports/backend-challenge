@@ -11,7 +11,6 @@ before(() => {
 describe('api', () => {
   describe('auth', () => {
     describe('login', () => {
-
       let globalEmail
       let globalPassword
       let globalAuth
@@ -30,7 +29,8 @@ describe('api', () => {
           email: globalEmail,
           password: globalPassword
         }
-        const { auth, user } = await agent.client()
+        const { auth, user } = await agent
+          .client()
           .post('/auth/login')
           .send(body)
           .expect(200)
@@ -41,7 +41,6 @@ describe('api', () => {
         auth.user.should.equal(user.id)
         user.email.should.equal(body.email)
       })
-
     })
   })
 })

@@ -1,9 +1,7 @@
 class CommonError extends Error {
-
   constructor(status, message, data = null) {
     super(message)
-    this._status = status,
-    this._data = data
+    ;(this._status = status), (this._data = data)
   }
 
   get status() {

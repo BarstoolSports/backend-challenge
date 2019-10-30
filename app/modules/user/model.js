@@ -1,7 +1,6 @@
 const { Model } = require('app/modules/common')
 
 class UserModel extends Model {
-
   schema() {
     return {
       firstName: {

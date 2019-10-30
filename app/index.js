@@ -1,5 +1,4 @@
 class App {
-
   constructor() {
     this._api = require('app/api')
     this._server = require('app/server')

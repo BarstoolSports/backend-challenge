@@ -13,7 +13,6 @@ const SALT_WORK_FACTOR = 12
  * @class AuthService
  */
 class AuthService extends Service {
-
   get SALT_WORK_FACTOR() {
     return SALT_WORK_FACTOR
   }
@@ -78,7 +77,9 @@ async function generateAuthToken() {
 }
 
 function sanitizeEmail(input) {
-  return String(input).trim().toLowerCase()
+  return String(input)
+    .trim()
+    .toLowerCase()
 }
 
 function sanitizePassword(input) {

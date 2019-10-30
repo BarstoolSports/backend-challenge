@@ -8,7 +8,6 @@ const uuid = require('uuid/v4')
  * @class CommonModel
  */
 class CommonModel {
-
   /**
    * @constructor
    */
@@ -56,8 +55,8 @@ class CommonModel {
   }
 
   /**
-  * @method toJSON
-  */
+   * @method toJSON
+   */
   toJSON(doc) {
     doc._id = doc.__t = doc.__v = undefined
   }
