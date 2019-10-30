@@ -1,3 +1,4 @@
+const httpStatus = require('http-status-codes')
 const userService = require('app/modules/user')
 
 /**
@@ -5,7 +6,7 @@ const userService = require('app/modules/user')
  */
 exports.read = async (req, res) => {
   const user = await userService.findById(req.params.id)
-  res.status(200).send(user)
+  res.status(httpStatus.OK).send(user)
 }
 
 /**
@@ -13,5 +14,5 @@ exports.read = async (req, res) => {
  */
 exports.update = async (req, res) => {
   const user = await userService.readAndUpdate(req.params.id, req.body)
-  res.status(200).send(user)
+  res.status(httpStatus.OK).send(user)
 }

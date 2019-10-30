@@ -1,3 +1,4 @@
+const httpStatus = require('http-status-codes')
 const authService = require('app/modules/auth')
 
 /**
@@ -7,7 +8,7 @@ const authService = require('app/modules/auth')
  */
 exports.register = async (req, res) => {
   const result = await authService.register(req.body)
-  res.status(201).send(result)
+  res.status(httpStatus.CREATED).send(result)
 }
 
 /**
@@ -17,5 +18,5 @@ exports.register = async (req, res) => {
  */
 exports.login = async (req, res) => {
   const result = await authService.login(req.body)
-  res.status(200).send(result)
+  res.status(httpStatus.OK).send(result)
 }

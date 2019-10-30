@@ -114,7 +114,7 @@ class CommonModel {
     const schema = new mongodb.Schema(config, options)
     this.configure(schema)
 
-    // Create the mondel
+    // Create the model
     const model = mongodb.createModel(this.name, schema, pluralize(this.name))
 
     // Listen for index errors
