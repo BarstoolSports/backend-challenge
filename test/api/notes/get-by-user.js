@@ -11,7 +11,6 @@ before(() => {
 describe('api', () => {
   describe('notes', () => {
     describe('read-by-user', () => {
-
       let globalAuth
 
       before(async () => {
@@ -19,7 +18,8 @@ describe('api', () => {
       })
 
       it('should return notes by logged in user', async () => {
-        const notes = await agent.client()
+        const notes = await agent
+          .client()
           .get(`/user/${globalAuth.user}/notes`)
           .set('authorization', globalAuth.token)
           .expect(200)

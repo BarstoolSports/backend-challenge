@@ -1,7 +1,6 @@
 const { Model } = require('app/modules/common')
 
 class NotesModel extends Model {
-
   schema() {
     return {
       title: {

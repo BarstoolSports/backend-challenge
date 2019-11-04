@@ -5,7 +5,7 @@ const notesService = require('app/modules/notes')
  * @method read
  */
 exports.read = async (req, res) => {
-  const notes = await notesService.find({userId: req.params.id})
+  const notes = await notesService.find({ userId: req.params.id })
   res.status(httpStatus.OK).send(notes)
 }
 
