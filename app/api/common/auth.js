@@ -36,7 +36,6 @@ class CommonAuth {
 }
 
 function parseAuthToken(req) {
-  console.log(req.headers.authorization)
   return (req.headers.authorization || '').trim().toLowerCase().split(' ').pop()
 }
 
