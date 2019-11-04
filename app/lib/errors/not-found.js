@@ -2,8 +2,7 @@ const httpStatus = require('http-status-codes')
 const CommonError = require('./common')
 
 class NotFoundError extends CommonError {
-
-  constructor(message='Not Found', data) {
+  constructor(message = 'Not Found', data) {
     super(httpStatus.NOT_FOUND, message, data)
   }
 

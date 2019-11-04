@@ -11,7 +11,6 @@ before(() => {
 describe('api', () => {
   describe('user', () => {
     describe('read-by-id', () => {
-
       let globalAuth
 
       before(async () => {
@@ -19,14 +18,16 @@ describe('api', () => {
       })
 
       it('should fail with invalid auth', () => {
-        return agent.client()
+        return agent
+          .client()
           .get(`/user/${globalAuth.user}`)
           .expect(401)
           .promise()
       })
 
       it('should read user', async () => {
-        const user = await agent.client()
+        const user = await agent
+          .client()
           .get(`/user/${globalAuth.user}`)
           .set('authorization', globalAuth.token)
           .expect(200)
@@ -34,7 +35,6 @@ describe('api', () => {
         should.exist(user)
         user.id.should.equal(globalAuth.user)
       })
-
     })
   })
 })

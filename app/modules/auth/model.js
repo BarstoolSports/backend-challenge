@@ -1,7 +1,6 @@
 const { Model } = require('app/modules/common')
 
 class AuthModel extends Model {
-
   schema() {
     return {
       token: {

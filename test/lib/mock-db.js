@@ -1,7 +1,6 @@
 const mongodb = require('app/lib/mongodb')
 
 class MockDB {
-
   /**
    * Wipes the test db so have a clean start for our tests
    *

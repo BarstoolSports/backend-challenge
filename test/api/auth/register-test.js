@@ -11,7 +11,6 @@ before(() => {
 describe('api', () => {
   describe('auth', () => {
     describe('register', () => {
-
       it('should register a user', async () => {
         const body = {
           email: `${mockData.uuid()}@test.com`,
@@ -19,7 +18,8 @@ describe('api', () => {
           firstName: mockData.uuid(),
           lastName: mockData.uuid()
         }
-        const { auth, user } = await agent.client()
+        const { auth, user } = await agent
+          .client()
           .post('/auth/register')
           .send(body)
           .expect(201)
@@ -31,7 +31,6 @@ describe('api', () => {
         user.firstName.should.equal(body.firstName)
         user.lastName.should.equal(body.lastName)
       })
-
     })
   })
 })

@@ -1,11 +1,7 @@
 const authService = require('app/modules/auth')
-const {
-  UnauthorizedError,
-  ForbiddenError
-} = require('app/lib/errors')
+const { UnauthorizedError, ForbiddenError } = require('app/lib/errors')
 
 class CommonAuth {
-
   /**
    * Requires a valid user auth token
    *
@@ -36,7 +32,11 @@ class CommonAuth {
 }
 
 function parseAuthToken(req) {
-  return (req.headers.authorization || '').trim().toLowerCase().split(' ').pop()
+  return (req.headers.authorization || '')
+    .trim()
+    .toLowerCase()
+    .split(' ')
+    .pop()
 }
 
 module.exports = CommonAuth

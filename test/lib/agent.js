@@ -3,7 +3,6 @@ const querystring = require('querystring')
 const uuid = require('uuid/v4')
 
 class Agent {
-
   async start(app) {
     this.app = app.start()
   }
@@ -35,10 +34,12 @@ class Agent {
     res.writeHead(500, {
       'Content-Type': 'application/json'
     })
-    res.write(JSON.stringify({
-      status: 500,
-      message: err.message
-    }))
+    res.write(
+      JSON.stringify({
+        status: 500,
+        message: err.message
+      })
+    )
     res.end()
   }
 }
@@ -68,7 +69,7 @@ function buildContext() {
 function parseBody(req) {
   return new Promise((resolve, reject) => {
     let body = ''
-    req.on('data', data => body += data.toString('utf8'))
+    req.on('data', data => (body += data.toString('utf8')))
     req.on('end', () => resolve(body))
     req.on('error', reject)
   })

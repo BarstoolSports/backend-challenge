@@ -1,7 +1,6 @@
 const crypto = require('crypto')
 
 class Utils {
-
   /**
    * Produces a secure random string of alphanumeric characters
    *

@@ -16,7 +16,6 @@ const ReadyStates = {
  * @class MongoDB
  */
 class MongoDB {
-
   /**
    * @param {MongooseSchema} Schema
    */
@@ -43,7 +42,7 @@ class MongoDB {
   }
 
   get connectionDb() {
-    return process.env.MONGODB_DB|| 'barstool-backend-challenge'
+    return process.env.MONGODB_DB || 'barstool-backend-challenge'
   }
 
   get connnectionOptions() {

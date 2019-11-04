@@ -3,7 +3,6 @@ const validator = require('express-validator')
 const { NotFoundError } = require('app/lib/errors')
 
 class HttpServer {
-
   /**
    * @constructor
    */

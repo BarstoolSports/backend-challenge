@@ -1,7 +1,6 @@
 const { BadRequestError } = require('app/lib/errors')
 
 class CommonValidator {
-
   /**
    * @method validate
    */
