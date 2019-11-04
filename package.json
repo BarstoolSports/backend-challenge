@@ -27,7 +27,7 @@
     "supertest": "4.0.2"
   },
   "engines": {
-    "node": "^11.13.0",
+    "node": "^10.15.3",
     "yarn": "^1.15.2"
   },
   "scripts": {

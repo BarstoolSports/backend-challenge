@@ -10,7 +10,7 @@ exports.read = async (req, res) => {
 }
 
 /**
- * @method update
+ * @method create
  */
 exports.create = async (req, res) => {
   const { title, message, userId } = req.body
