@@ -15,5 +15,5 @@ exports.read = async (req, res) => {
 exports.create = async (req, res) => {
   const { title, message, userId } = req.body
   await notesService.create({ title, message, userId })
-  res.status(httpStatus.OK).send({ title, message, userId })
+  res.status(httpStatus.CREATED).send({ title, message, userId })
 }
