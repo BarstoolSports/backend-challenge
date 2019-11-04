@@ -2,7 +2,6 @@ const bcrypt = require('bcryptjs')
 const uuid = require('uuid/v4')
 const authService = require('app/modules/auth')
 const userService = require('app/modules/user')
-const notesService = require('app/modules/user')
 
 class MockData {
 
@@ -30,16 +29,6 @@ class MockData {
   }
 
   /**
-   * @method mockAuthUserAndNotes
-   */
-  async mockAuthUserAndNotes(options = {}) {
-    const user = await this.mockUser(options)
-    const auth = await this.mockAuth({ ...options, user: user.id })
-    const notes = await this.mockNotes({user: user.id})
-    return {...auth, notes}
-  }
-
-  /**
    * @method mockAuth
    */
   mockAuth(options = {}) {
@@ -61,18 +50,6 @@ class MockData {
       lastName: 'Doe'
     }, options)
     return userService.create(data)
-  }
-
-  /**
-   * @method mockNotes
-   */
-  mockNotes(options = {}) {
-    const data = Object.assign({
-      title: uuid(),
-      message: uuid(),
-      user: options.user
-    }, options)
-    return notesService.create(data)
   }
 }
 

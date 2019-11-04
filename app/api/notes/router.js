@@ -8,7 +8,7 @@ module.exports = router => {
     await controller.read(req, res)
   })
 
-  router.post('/notes', async (req, res) => {
+  router.post('/note', async (req, res) => {
     await auth.requiresCurrentUser(req)
     await validator.create(req)
     await controller.create(req, res)

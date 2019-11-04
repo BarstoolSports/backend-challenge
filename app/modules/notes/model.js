@@ -14,8 +14,7 @@ class NotesModel extends Model {
         trim: true,
         required: true
       },
-      // For sake of time I made this a string and not a dbref.
-      user: {
+      userId: {
         type: String,
         required: true
       }

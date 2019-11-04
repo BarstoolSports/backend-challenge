@@ -43,7 +43,7 @@ class MongoDB {
   }
 
   get connectionDb() {
-    return process.env.MONGODB_DB|| 'barstool-backend-challenege'
+    return process.env.MONGODB_DB|| 'barstool-backend-challenge'
   }
 
   get connnectionOptions() {

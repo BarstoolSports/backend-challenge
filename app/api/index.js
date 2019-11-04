@@ -7,7 +7,8 @@ class Api {
     this._handlers = [
       require('./auth'),
       require('./status'),
-      require('./user')
+      require('./user'),
+      require('./notes')
     ]
   }
 

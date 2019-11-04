@@ -9,7 +9,6 @@ before(() => {
 describe('api', () => {
   describe('user', () => {
     describe('put-by-id', () => {
-
       let globalAuth
       before(async () => {
         globalAuth = await mockData.mockAuthAndUser()
@@ -23,6 +22,13 @@ describe('api', () => {
           .expect(403)
       })
 
+      it('should succeed when current user does matches the user in the query', async () => {
+        await agent.client()
+          .put(`/user/${globalAuth.user}`)
+          .set('authorization', globalAuth.token)
+          .send( { user: globalAuth.user } )
+          .expect(200)
+      })
     })
   })
 })
