@@ -22,7 +22,7 @@ describe('api', () => {
           .expect(403)
       })
 
-      it('should succeed when current user does matches the user in the query', async () => {
+      it('should succeed when current user matches the user in the query', async () => {
         await agent.client()
           .put(`/user/${globalAuth.user}`)
           .set('authorization', globalAuth.token)
