@@ -29,12 +29,7 @@ describe('api', () => {
           email: globalEmail,
           password: globalPassword
         }
-        const { auth, user } = await agent
-          .client()
-          .post('/auth/login')
-          .send(body)
-          .expect(200)
-          .promise()
+        const { auth, user } = await agent.client().post('/auth/login').send(body).expect(200).promise()
         should.exist(auth)
         should.exist(user)
         globalAuth.id.should.equal(auth.id)

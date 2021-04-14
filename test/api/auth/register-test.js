@@ -18,12 +18,7 @@ describe('api', () => {
           firstName: mockData.uuid(),
           lastName: mockData.uuid()
         }
-        const { auth, user } = await agent
-          .client()
-          .post('/auth/register')
-          .send(body)
-          .expect(201)
-          .promise()
+        const { auth, user } = await agent.client().post('/auth/register').send(body).expect(201).promise()
         should.exist(auth)
         should.exist(user)
         auth.user.should.equal(user.id)

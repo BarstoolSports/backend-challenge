@@ -77,9 +77,7 @@ async function generateAuthToken() {
 }
 
 function sanitizeEmail(input) {
-  return String(input)
-    .trim()
-    .toLowerCase()
+  return String(input).trim().toLowerCase()
 }
 
 function sanitizePassword(input) {

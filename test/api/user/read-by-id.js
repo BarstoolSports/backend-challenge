@@ -18,11 +18,7 @@ describe('api', () => {
       })
 
       it('should fail with invalid auth', () => {
-        return agent
-          .client()
-          .get(`/user/${globalAuth.user}`)
-          .expect(401)
-          .promise()
+        return agent.client().get(`/user/${globalAuth.user}`).expect(401).promise()
       })
 
       it('should read user', async () => {
