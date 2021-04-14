@@ -69,7 +69,7 @@ function buildContext() {
 function parseBody(req) {
   return new Promise((resolve, reject) => {
     let body = ''
-    req.on('data', data => (body += data.toString('utf8')))
+    req.on('data', (data) => (body += data.toString('utf8')))
     req.on('end', () => resolve(body))
     req.on('error', reject)
   })

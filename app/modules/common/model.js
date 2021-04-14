@@ -117,7 +117,7 @@ class CommonModel {
     const model = mongodb.createModel(this.name, schema, pluralize(this.name))
 
     // Listen for index errors
-    model.on('index', err => {
+    model.on('index', (err) => {
       if (err) throw err
     })
 

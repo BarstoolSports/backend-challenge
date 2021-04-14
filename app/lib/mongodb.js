@@ -83,7 +83,7 @@ class MongoDB {
         resolve()
       })
 
-      mongoose.connection.on('error', err => {
+      mongoose.connection.on('error', (err) => {
         console.error('MongoDB: error', err)
         reject(err)
       })
