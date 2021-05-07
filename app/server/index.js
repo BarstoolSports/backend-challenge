@@ -1,5 +1,4 @@
 const lambdaApi = require('lambda-api')
-const validator = require('express-validator')
 const { NotFoundError } = require('app/lib/errors')
 
 class HttpServer {
@@ -52,7 +51,6 @@ class HttpServer {
       res.header('cache-control', 'private')
       next()
     })
-    this.router.use(validator())
   }
 
   /**

@@ -1,36 +1,20 @@
-const { Validator } = require('app/api/common')
+const { validate, Validator } = require('app/api/common')
+const { body } = validate
 
 class AuthValidator extends Validator {
-  register(req) {
-    req
-      .checkBody('email')
-      .notEmpty()
-      .isEmail()
-    req
-      .checkBody('password')
-      .notEmpty()
-      .len(6, 64)
-    req
-      .checkBody('firstName')
-      .notEmpty()
-      .len(1, 64)
-    req
-      .checkBody('lastName')
-      .notEmpty()
-      .len(1, 64)
-    return this.validate(req)
+  async register(req) {
+    const validations = [
+      body('email').notEmpty().isEmail(),
+      body('password').notEmpty().isLength(6, 64),
+      body('firstName').notEmpty().isLength(1, 64),
+      body('lastName').notEmpty().isLength(1, 64)
+    ]
+    await this.validate(req, validations, { sanitize: 'query' })
   }
 
-  login(req) {
-    req
-      .checkBody('email')
-      .notEmpty()
-      .isEmail()
-    req
-      .checkBody('password')
-      .notEmpty()
-      .len(0, 64)
-    return this.validate(req)
+  async login(req) {
+    const validations = [body('email').notEmpty().isEmail(), body('password').notEmpty().isLength(0, 64)]
+    await this.validate(req, validations, { sanitize: 'query' })
   }
 }
 

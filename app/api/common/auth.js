@@ -32,11 +32,7 @@ class CommonAuth {
 }
 
 function parseAuthToken(req) {
-  return (req.headers.authorization || '')
-    .trim()
-    .toLowerCase()
-    .split(' ')
-    .pop()
+  return (req.headers.authorization || '').trim().toLowerCase().split(' ').pop()
 }
 
 module.exports = CommonAuth

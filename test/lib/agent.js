@@ -1,6 +1,6 @@
 const request = require('supertest')
 const querystring = require('querystring')
-const uuid = require('uuid/v4')
+const { v4: uuid } = require('uuid')
 
 class Agent {
   async start(app) {
@@ -69,13 +69,13 @@ function buildContext() {
 function parseBody(req) {
   return new Promise((resolve, reject) => {
     let body = ''
-    req.on('data', data => (body += data.toString('utf8')))
+    req.on('data', (data) => (body += data.toString('utf8')))
     req.on('end', () => resolve(body))
     req.on('error', reject)
   })
 }
 
-request.Test.prototype.promise = async function() {
+request.Test.prototype.promise = async function () {
   const { body } = await new Promise((resolve, reject) => {
     this.end((err, result) => {
       if (err) return reject(err)

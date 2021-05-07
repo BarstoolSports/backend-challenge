@@ -42,7 +42,7 @@ class MongoDB {
   }
 
   get connectionDb() {
-    return process.env.MONGODB_DB || 'barstool-backend-challenege'
+    return process.env.MONGODB_DB || 'barstool-backend-challenge'
   }
 
   get connnectionOptions() {
@@ -83,7 +83,7 @@ class MongoDB {
         resolve()
       })
 
-      mongoose.connection.on('error', err => {
+      mongoose.connection.on('error', (err) => {
         console.error('MongoDB: error', err)
         reject(err)
       })

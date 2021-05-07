@@ -1,16 +1,28 @@
-const { BadRequestError } = require('app/lib/errors')
+const { ValidationError } = require('app/lib/errors')
+const { validationResult, matchedData } = require('express-validator')
+const { asArray, flattenObject } = require('app/lib/utils')
 
 class CommonValidator {
   /**
    * @method validate
    */
-  async validate(req) {
-    const result = await req.getValidationResult()
-    if (result.isEmpty()) return
+  async validate(req, validations, options = {}) {
+    await Promise.all(validations.map((validation) => validation.run(req)))
+    const errors = validationResult(req)
 
-    const error = result.array({ onlyFirstError: true })[0]
-    const message = `${error.msg} for ${error.param} - ${error.value}`
-    throw new BadRequestError(message)
+    if (errors.isEmpty() !== true) {
+      throw new ValidationError(errors.array())
+    }
+
+    // Sanitize request options
+    asArray(options.sanitize).forEach((key) => {
+      req[key] = matchedData(req, { locations: [key] })
+    })
+
+    // Flatten request options
+    asArray(options.flatten).forEach((key) => {
+      req[key] = flattenObject(req[key])
+    })
   }
 }
 

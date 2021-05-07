@@ -1,6 +1,6 @@
 const mongodb = require('app/lib/mongodb')
 const pluralize = require('mongoose-legacy-pluralize')
-const uuid = require('uuid/v4')
+const { v4: uuid } = require('uuid')
 
 /**
  * Common Model
@@ -35,7 +35,7 @@ class CommonModel {
    * @param {MongooseSchema} schema
    */
   configure(schema) {
-    schema.virtual('id').get(function() {
+    schema.virtual('id').get(function () {
       return this._id
     })
 
@@ -117,7 +117,7 @@ class CommonModel {
     const model = mongodb.createModel(this.name, schema, pluralize(this.name))
 
     // Listen for index errors
-    model.on('index', err => {
+    model.on('index', (err) => {
       if (err) throw err
     })
 

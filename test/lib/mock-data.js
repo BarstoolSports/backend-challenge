@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs')
-const uuid = require('uuid/v4')
+const { v4: uuid } = require('uuid')
 const authService = require('app/modules/auth')
 const userService = require('app/modules/user')
 
