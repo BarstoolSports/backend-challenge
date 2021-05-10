@@ -12,6 +12,6 @@ exports.read = async (req, res) => {
  * @method update
  */
 exports.update = async (req, res) => {
-  const user = await userService.readAndUpdate(req.params.id, req.body)
+  const user = await userService.findByIdAndUpdate(req.params.id, req.body)
   res.status(200).send(user)
 }
