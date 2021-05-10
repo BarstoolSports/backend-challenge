@@ -19,18 +19,18 @@ describe('api', () => {
 
       it('should fail with invalid auth', () => {
         const body = {
-          firstName: 'Jeffrey',
-          lastName: 'Pope',
-          email: 'jpopeufl@gmail.com'
+          firstName: mockData.uuid(),
+          lastName: mockData.uuid(),
+          email: `${mockData.uuid()}@test.com`
         }
         return agent.client().put(`/user/${globalAuth.user}`).send(body).expect(401).promise()
       })
 
       it('should update user', async () => {
         const body = {
-          firstName: 'Jeffrey',
-          lastName: 'Pope',
-          email: 'jpopeufl@gmail.com'
+          firstName: mockData.uuid(),
+          lastName: mockData.uuid(),
+          email: `${mockData.uuid()}@test.com`
         }
         const user = await agent
           .client()
