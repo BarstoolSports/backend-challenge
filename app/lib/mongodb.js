@@ -1,10 +1,6 @@
 const { MongoClient, ReadPreference } = require('mongodb')
 const mongoose = require('mongoose')
 
-mongoose.set('useCreateIndex', true)
-mongoose.set('useNewUrlParser', true)
-mongoose.set('useFindAndModify', false)
-
 const ReadyStates = {
   disconnected: 0,
   connected: 1,
@@ -48,17 +44,11 @@ class MongoDB {
   get connnectionOptions() {
     return {
       ssl: process.env.MONGODB_SSL === 'true',
-      poolSize: 1,
-      readPreference: ReadPreference.PRIMARY_PREFERRED,
-      keepAlive: 1000,
-      autoReconnect: true,
-      reconnectInterval: 250,
-      reconnectTries: Number.MAX_VALUE,
-      connectTimeoutMS: 360000,
-      socketTimeoutMS: 360000,
-      validateOptions: true,
-      useNewUrlParser: true,
-      promiseLibrary: Promise
+      minPoolSize: 0,
+      maxPoolSize: 4,
+      connectTimeoutMS: 15 * 60 * 1000, // 15 minutes to prevent lambda issues
+      serverSelectionTimeoutMS: 15 * 60 * 1000, // 15 minutes to prevent lambda issues
+      socketTimeoutMS: 15 * 60 * 1000 // 15 minutes to prevent lambda issues
     }
   }
 

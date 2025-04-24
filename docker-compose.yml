@@ -1,0 +1,19 @@
+version: '3.6'
+
+services:
+  # mongo service
+  mongodb-local:
+    image: mongo:8.0
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - mongo_net
+
+volumes:
+  mongo-data:
+
+networks:
+  mongo_net:
+    driver: bridge
