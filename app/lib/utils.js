@@ -1,5 +1,6 @@
 const crypto = require('crypto')
-const _ = require('lodash')
+const _isPlainObject = require('lodash/isPlainObject')
+const _merge = require('lodash/merge')
 
 class Utils {
   /**
@@ -29,9 +30,9 @@ class Utils {
    */
   flattenObject(_obj, _path = []) {
     const _flattenObject = (obj, path) => {
-      return !_.isPlainObject(obj)
+      return !_isPlainObject(obj)
         ? { [path.join('.')]: obj }
-        : Object.entries(obj).reduce((acc, [key, value]) => _.merge(acc, _flattenObject(value, [...path, key])), {})
+        : Object.entries(obj).reduce((acc, [key, value]) => _merge(acc, _flattenObject(value, [...path, key])), {})
     }
     return _flattenObject(_obj, _path)
   }

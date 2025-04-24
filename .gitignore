@@ -1,5 +1,4 @@
 .serverless
-.env*
 .envrc
 .services
 .notes

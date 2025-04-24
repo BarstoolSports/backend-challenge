@@ -3,7 +3,7 @@ service: barstool-backend-challenge
 provider:
   name: aws
   profile: barstool
-  runtime: nodejs14.x
+  runtime: nodejs20.x
   region: us-east-1
   memorySize: 1024
   timeout: 30
