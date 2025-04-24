@@ -6,7 +6,7 @@ To better assess a candidate's backend development skills, we would like to prov
 
 The goal of this project is to familiarize yourself with the backend Node.js API in this repository and then implement missing features and tests.
 
-> The project must be completed with *Node.js v20* or later
+> The project must be completed with *Node.js v20.18.0*
 
 1. Update `.env` to have proper Mongo connection string
 2. Modify the `GET /dev/status` route to only return a `200 OK` if the server is currently connected to the database
