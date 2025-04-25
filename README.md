@@ -42,6 +42,3 @@ yarn start
 ```
 
 If the server starts up successfully you will see a log in the console letting you know the server is running and listening on port 3000. Open the `/dev/status` route to confirm: http://localhost:3000/dev/status
-
-### Upon Completion
-Provide access to the Barstool Engineer who sent you the challenge so they can look at the solution
