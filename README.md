@@ -41,4 +41,4 @@ The goal of this project is to familiarize yourself with the backend Node.js API
 5. Add the route `GET /dev/user/:id/notes` which should list all notes for that user. Remember to ensure the user id in the url matches the current user making the request
 6. Add a test for the previous route to show that it works correctly
 7. Add a route `POST /dev/note` which should let a logged in user create a note and save it to their account
-8. Add a test for the previous route to show that ir works correctly
+8. Add a test for the previous route to show that it works correctly
