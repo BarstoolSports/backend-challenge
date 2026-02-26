@@ -3,7 +3,8 @@ class Api {
    * @constructor
    */
   constructor() {
-    this._handlers = [require('./auth'), require('./status'), require('./user')]
+    // updating this to incude the new module for notes
+    this._handlers = [require('./auth'), require('./status'), require('./user'), require('./note')]
   }
 
   get handlers() {
