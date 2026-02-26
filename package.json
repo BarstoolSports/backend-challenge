@@ -27,7 +27,8 @@
     "serverless-offline": "13.6.0",
     "should": "^13.2.3",
     "sinon": "^10.0.0",
-    "supertest": "^6.1.6"
+    "supertest": "^6.1.6",
+    "yarn": "^1.22.22"
   },
   "engines": {
     "node": "20.18.0",

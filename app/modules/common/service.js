@@ -130,6 +130,19 @@ class CommonService {
   aggregate() {
     return this.model.aggregate(...arguments)
   }
+
+    /**
+   * @method readAndUpdate
+   * @param {String} id
+   * @param {Object} data
+   * @return {Query}
+   */
+
+  // Adding this as it seemed to be missing for one of the API endpoints 
+  // Not specifed for particular changes but has impact when creating test cases
+  readAndUpdate(id, data) {
+    return this.model.findByIdAndUpdate(id, data, { new: true })
+  }
 }
 
 module.exports = CommonService
